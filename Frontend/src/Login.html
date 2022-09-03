@@ -28,10 +28,11 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
+
         }
         nav {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         padding: 0 24px;
         border-bottom: 1px solid var(--very-light-pink);
         background-color: var(--dark-red);
@@ -39,82 +40,115 @@
         .form-container div{
             align-items: center;
         }
-        .navbar-center{
+        .navbar-brand{
             text-decoration: none;
             color: var(--white);
             padding: 8px;
             border-radius: 8px;
-            font-style: Black;
             font-size: 40px;
-            line-height: 53px;
             line-height: 100%;
             align-content: Center;
             Vertical-align: Top;
             margin-top: 8px;
+            justify-content: space-evenly;
+        }
+        .login h1{
+            background-color: #D9D9D9;
+            background-size: 150px 25px;
+            font-size:50px;
+            font-weight: bold;
+            font-family: bold;
         }
         .usuario{
+            padding: 30px 0 0 0;
             font-weight: bold;
-            font-size: 50px;
+            font-size: 30px;
         }
         .form-container input::placeholder{
             font-size: var(--lg);
-            color: red;
+            color:#000000;
+            background-color: #BDBDBD;
             align-items: center;
             text-align: center;
+            padding: 15px 0px 15px 0px;
         }
         .contraseña{
+            padding: 0;
             font-weight: bold;
-            font-size: 50px;
+            font-size: 30px;
+        }
+        .input-password, .input-user{
+            height: 35px;
+            width: 225px;
         }
         .navbar-center h1{
-            text-shadow: black;
-        }
-        .logo{
-            display: none;
+            stroke: #000000 ;
         }
         .login div{
             align-items: center;
             display: flex;
             flex-direction: column;
-            padding: 36px 0 0 0;
+            padding: 18px 0 0 0;
         }
+        .subtitle{
+            background-color: #D9D9D9;
+            width: 350px;
+            height: 100px;
+            align-items: center;
+            border-radius: 15px 15px 0px 0px;
+        } 
         .form{
-            background-color: #BDBDBD;
+            background-color: #D9D9D9;
+            height: 370px;
+            width: 350px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            align-content: center;
-            padding: 0 0 24px 0;
-            border-radius: 15px;
+            border-radius: 0px 0px 15px 15px;
+            border-style:double;
         }
         .secondary-button{
-            margin-top: 15px;
+            border: #000000 ;
+            color: #ff5050;
+            font-size: larger;
+            background-color: #bbffa2;
+            margin-top: 40px;
+            width: 250px;
+            height: 50px;
+            border-radius: 25px;
         }
-        .secondary-button:hover{
-            color: var(--dark-red);
-            background-color: #CF5E00;
+        .navbar-brand{
+            display: flex;
+            align-items: flex-start;
         }
     </style>
 </head>
 <body>
-    <nav>
-            <img src="./caney-Logo.png" alt="logo" class="logo">
-        <div class="navbar-center">
-            <h1>BIENVENIDOS AL CANEY LLANERO</h1>
+    <nav class="navbar-center">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./caney-Logo.png" alt="logo" class="logo" width="80" height="80">
+                <h1 class="title">BIENVENIDOS AL CANEY LLANERO</h1>
+            </a>
         </div>
     </nav>
 
     <div class="login">
         <div class ="form-container">
+            <form action="/" class="subtitle" style="border-style:double">
+                <div class="login-h1">
+                    <h1>LOGIN</h1>
+                </div>
+            </form>
             <form action="/" class="form">
             <label for="usuario" class="usuario">Usuario</label>
-            <br>
-            <input type="text" id="Email" placeholder="Pepito21" class="input input-email">
+            <!-- <br> -->
+            <input type="text" id="Email" placeholder="Usuario" class="input input-user">
             <br>
             <label for="password" class="contraseña">Contraseña</label>
-            <br>
+            <!-- <br> -->
             <input type="password" id="password" placeholder="*********" class="input input-password">
-            <button class="secondary-button signup-button">Sign up</button>
+            <button class="secondary-button signup-button btn btn-outline-warning">Sign up</button>
             </form>
         </div>
     </div>
