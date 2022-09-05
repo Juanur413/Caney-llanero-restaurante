@@ -12,6 +12,9 @@ public class Administrador {
     private Integer Id_Documento;
 
     @Column
+    private String Usuario;
+
+    @Column
     private String Nombre;
 
     @Column
@@ -22,6 +25,14 @@ public class Administrador {
 
     @Column
     private String Contraseña;
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        Usuario = usuario;
+    }
 
     public Integer getId_Documento() {
         return Id_Documento;
@@ -62,7 +73,5 @@ public class Administrador {
     public void setContraseña(String contraseña) {
         Contraseña = contraseña;
     }
-
     
-
 }
