@@ -5,6 +5,6 @@ import com.caneyllanero.caneyllanero.model.Administrador;
 
 public interface IAdministradorService {
     
-    Optional<Administrador> findByUsuario(String usuario); 
+    Optional<Administrador> findById(Integer id); 
 
 }

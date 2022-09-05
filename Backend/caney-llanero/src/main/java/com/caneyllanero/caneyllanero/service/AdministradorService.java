@@ -2,16 +2,22 @@ package com.caneyllanero.caneyllanero.service;
 
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.caneyllanero.caneyllanero.model.Administrador;
+import org.springframework.stereotype.Service;
 
+import com.caneyllanero.caneyllanero.model.Administrador;
+import com.caneyllanero.caneyllanero.repository.IAdministradorRepository;
+
+@Service
 public class AdministradorService implements IAdministradorService {
 
     @Autowired
-    private IAdministradorService AdministradorService;
+    private IAdministradorRepository adminRepo;
 
     @Override
-    public Optional<Administrador> findByUsuario(String usuario) {
-        return AdministradorService.findByUsuario(usuario);
+    public Optional<Administrador> findById(Integer id) {
+
+        return adminRepo.findById(id);
+
     }
     
 }

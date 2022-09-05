@@ -6,5 +6,4 @@ import com.caneyllanero.caneyllanero.model.Administrador;
 
 @Repository
 public interface IAdministradorRepository extends JpaRepository <Administrador, Integer> {
-    
 }

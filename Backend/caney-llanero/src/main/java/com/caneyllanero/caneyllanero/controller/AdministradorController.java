@@ -11,15 +11,15 @@ import com.caneyllanero.caneyllanero.model.Administrador;
 import com.caneyllanero.caneyllanero.service.AdministradorService;
 
 @RestController
-@RequestMapping(path = "/Login")
+@RequestMapping("/Login")
 public class AdministradorController {
 
     @Autowired
     private AdministradorService administradorService;
 
-    @GetMapping("/{Usuario}")
-    public ResponseEntity<Administrador> findByUsuario(@PathVariable("Usuario") String usuario) { 
-        return administradorService.findByUsuario(usuario)
+    @GetMapping("/{id}")
+    public ResponseEntity<Administrador> findById(@PathVariable("id") Integer Id_Documento ) { 
+        return administradorService.findById(Id_Documento)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     
