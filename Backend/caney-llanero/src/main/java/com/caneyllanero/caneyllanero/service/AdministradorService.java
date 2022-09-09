@@ -16,8 +16,15 @@ public class AdministradorService implements IAdministradorService {
     @Override
     public Optional<Administrador> findById(Integer id) {
 
+        Optional<Administrador> admin = adminRepo.findById(id);
+        admin.map(this::contra);
         return adminRepo.findById(id);
 
+
+    }
+
+    public String contra (Administrador contraseña) {
+        return contraseña.getContraseña();
     }
     
 }
