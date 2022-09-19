@@ -11,52 +11,70 @@
     <link rel="stylesheet" href="Css_general.css" type="text/css">
     <title>Inicio</title>
     <style>
-        .list-group{
-            background-color:var(--gray);
-        }
-        .list-group ul{
-            position:relative;
-        }
-        .list-group a{
-            color:var(--black);
-            text-decoration: none;
-            font-size: 20px;
-        }
-        .list-group-item{
-            padding: 5px;
+        .menu-box{
             background-color: var(--gray);
-            width: 300px;
+            width: 240px;
+            height: 300px;
+            margin: 120px 0 20px 20px;
+            border-radius: 15px;
+            border-style:solid;
+        }
+        .menu-box h1{
             text-align: center;
-            align-items: center;
+            font-size: 50px;
+            font-weight: bolder;
+            border-bottom: 3px solid #000;
         }
-        .navbar-left ul{
-            list-style: none;
+        .menu-box ul li a{
             padding: 0;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            height: 60px;
-        }
-        .navbar-left {
-            display: flex;
-            position: relative;
-        }
-        .container{
-            position: relative;
-        }
-        .navbar-left ul {
-            margin-left: -50px;
-        }
-        .navbar-left ul li a, .navbar-right ul li a{
-            text-decoration: none;
+            font-size: 25px;
             color: var(--black);
+            height: 50px;
+            width: 200px;
+            margin: 6px;
             border: 1 solid var(--dark-red);
-            padding: 8px;
+            border-style: double;
             border-radius: 8px;
         }
-        .navbar-left ul li a:hover, .navbar-right ul li a:hover{
-            border: 1px solid var(--dark-red);
-            color: var(--dark-red);
+        .menu-box ul li{
+            position: relative;
+        }
+        .menu-box ul li:nth-child(1)::before{
+            content: '';
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            background-image: url(../utilities/utensils-solid.svg);
+            background-size: cover;
+            left: 50px;
+            top: 25%;
+        }
+        .menu-box ul li:nth-child(2)::before{
+            content: '';
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            background-image: url(../utilities/box-open-solid.svg);
+            background-size:cover;
+            left: 25px;
+            top: 28%;
+        }
+        .menu-box ul li:nth-child(3)::before{
+            content: '';
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            background-image: url(../utilities/bag-shopping-solid.svg);
+            background-size:cover;
+            left: 35px;
+            top: 23%;
+        }
+        .menu-nav {
+            text-align: center;
+        }
+        .menu-nav ul{
+            list-style: none;
+            padding: 0;
         }
     </style>
 </head>
@@ -79,21 +97,21 @@
         </nav>
     </div>
 
-<div class="container">
-    <div class="navbar-left">
-        <ul class="list-group">
-                <a class="menu" href="/">Menu</a>
-            <li class="list-group-item">
-                <a href="/">Inicio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="/">Productos</a>
-            </li>                
-            <li class="list-group-item">
-                <a href="/">Pedidos</a>
-            </li>                
-        </ul>
-</div>
-</div>
+    <div class="menu-box">
+        <h1>Menú</h1>
+        <form class="menu-nav">
+            <ul> 
+                <li>
+                    <a href="../src/Inicio.html" class="btn btn-outline-success">Inicio</a>
+                </li>
+                <li>
+                    <a href="#" class="btn btn-outline-success">Productos</a>
+                </li>
+                <li>
+                    <a href="#" class="btn btn-outline-success">Pedidos</a>
+                </li>
+            </ul>
+        </form>
+    </div>
 </body>
 </html>
