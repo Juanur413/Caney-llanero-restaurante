@@ -19,21 +19,20 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
-nav {
+header {
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 0.5px solid #1f0c0d;
     background-color: var(--dark-red);  
 }
-.navbar-brand{
+.header-brand{
     text-decoration: none;
     color: var(--white);
+    font-weight: bolder;
     font-size: 34px;
     line-height: 100%;
-    stroke: #000000;
 }
-.navbar-brand{
-    display:flexbox;
-    align-items: flex-start;
+.header-brand:hover{
+    color: var(--very-light-pink);
 }

@@ -76,42 +76,153 @@
             list-style: none;
             padding: 0;
         }
+
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 240px);
+            gap: 26px;
+            place-content: center;
+            padding: 120px 0 0 0;
+            justify-content: space-between;
+        }
+        .product-card {
+            width: 260px;
+            height: 310px;
+            background-color: brown;
+            border-radius: 5%;
+            border-style: solid;
+        }
+        .product-card img {
+            padding: 5px;
+            width: 240px;
+            height: 240px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+        .product-info figure {
+            margin: 0;
+        }
+        .product-info figure img {
+            object-fit: fill;
+            width: 35px;
+            height: 35px;
+        }
+        .product-info div p:nth-child(1) {
+            margin: 5px;
+            color: #fff;
+            font-weight: bold;
+            font-size: var(--md);
+            margin-top: 0;
+            margin-bottom: 4px;
+        }
+        .product-info div p:nth-child(2) {
+            margin: 5px;
+            font-size: var(--sm);
+            margin-top: 0;
+            margin-bottom: 0;
+            color: var(--very-light-pink);
+    }
     </style>
 </head>
 <body>
-    <div class="containter">
-        <nav class="navbar-center">
+    <div class="containter text-center">
+        <header class="header-center">
                 <div class ="d-inline-flex align-content-center p-0 ml-auto m-1">
-                    <a class="navbar-brand " href="#">
+                        <a class="header-brand " href="#">
                         <img src="..\utilities\caney-Logo.png" alt="logo" class="logo" width="60" height="60" class="justify-content-start">
                     </a>
                 </div>
                 <div class="d-in justify-content-start p-0 align-self-center mx-auto m-1 ">
-                    <a class="navbar-brand ">Bienvenidos al Caney Llanero</a>
+                    <a class="header-brand">Bienvenidos al Caney Llanero</a>
                 </div>
                 <div class ="d-inline-flex align-content-center p-0 mr-auto m-1 invisible">
-                    <a class="navbar-brand " href="#">
+                    <a class="header-brand " href="#">
                         <img width="60" height="60" >
                     </a>
                 </div>
-        </nav>
+            </header>
     </div>
-
+    <nav class="container" style="float:left; margin:0; width: 20%; height:max-content;" >
     <div class="menu-box">
         <h1>Menú</h1>
         <form class="menu-nav">
-            <ul> 
-                <li>
+            <ul flex-column> 
+                <li class="nav-item">
                     <a href="../src/Inicio.html" class="btn btn-outline-success">Inicio</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="#" class="btn btn-outline-success">Productos</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="#" class="btn btn-outline-success">Pedidos</a>
                 </li>
             </ul>
         </form>
     </div>
+</nav>
+
+    <section class="cards" style="float:right; margin:0; width: 80%; height:max-content;">
+    <div class="cards-container">
+        <div class="product-card">
+            <img src="../utilities/carne.jfif" alt="">
+            <div class="product-info">
+                <div>
+                    <p>$23.000</p>
+                    <p>Carne asada</p>
+                </div>
+                <figure>
+                    <img src="../utilities/cart-plus-solid.svg" alt="">
+                </figure>
+            </div>
+        </div>
+
+        <div class="product-card">
+        <img src="../utilities/carne.jfif" alt="">
+        <div class="product-info">
+            <div>
+                <p>$23.000</p>
+                <p>Carne asada</p>
+            </div>
+            <figure>
+                <img src="../utilities/cart-plus-solid.svg" alt="">
+            </figure>
+        </div>
+        </div>
+
+        <div class="product-card">
+        <img src="../utilities/carne.jfif" alt="">
+        <div class="product-info">
+            <div>
+                <p>$23.000</p>
+                <p>Carne asada</p>
+            </div>
+            <figure>
+                <img src="../utilities/cart-plus-solid.svg" alt="">
+            </figure>
+        </div>
+        </div>
+
+        <div class="product-card">
+    <img src="../utilities/carne.jfif" alt="">
+    <div class="product-info">
+        <div>
+            <p>$23.000</p>
+            <p>Carne asada</p>
+        </div>
+        <figure>
+            <img src="../utilities/cart-plus-solid.svg" alt="">
+        </figure>
+    </div>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
