@@ -19,13 +19,11 @@ public class Producto {
     @Column
     private Integer Precio;
 
-    @JoinColumn(name = "Id_Tipo_producto", nullable = false, referencedColumnName="Id_Tipo_producto")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Tipo_Producto tipo_producto;
+    @Column
+    private Integer Id_Tipo_producto;
 
-    @JoinColumn(name = "Id_Documento", nullable = false, referencedColumnName="Id_Documento")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Administrador administrador;
+    @Column
+    private Integer Id_Documento;
 
     @Column
     private String Imagen;
@@ -61,21 +59,22 @@ public class Producto {
     public void setPrecio(Integer precio) {
         Precio = precio;
     }
-
-    public Tipo_Producto getTipo_producto() {
-        return tipo_producto;
+    
+    public Integer getId_Tipo_producto() {
+        return Id_Tipo_producto;
     }
 
-    public void setTipo_producto(Tipo_Producto tipo_producto) {
-        this.tipo_producto = tipo_producto;
+    public void setId_Tipo_producto(Integer Id_Tipo_producto) {
+        this.Id_Tipo_producto = Id_Tipo_producto;
     }
     
-    public Administrador getAdministrador() {
-        return administrador;
+
+    public Integer getId_Documento() {
+        return Id_Documento;
     }
 
-    public void setAdministrador(Administrador administrador) {
-        this.administrador = administrador;
+    public void setId_Documento(Integer id_Documento) {
+        Id_Documento = id_Documento;
     }
 
     public String getImagen() {
