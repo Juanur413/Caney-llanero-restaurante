@@ -7,4 +7,6 @@ public interface IAdministradorService {
     
     Optional<Administrador> findById(Integer id); 
 
+    String contra (Administrador contraseña);
+
 }
