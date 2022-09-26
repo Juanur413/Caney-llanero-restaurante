@@ -9,138 +9,85 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="icon" href="../utilities/favicon.ico">
     <link rel="stylesheet" href="Css_general.css" type="text/css">
+    <link rel="stylesheet" href="grilla.css" type="text/css">
     <title>Inicio</title>
     <style>
-        .menu-box{
-            background-color: var(--gray);
-            width: 240px;
-            height: 300px;
-            margin: 120px 0 20px 20px;
-            border-radius: 15px;
-            border-style:solid;
-        }
-        .menu-box h1{
-            text-align: center;
-            font-size: 50px;
-            font-weight: bolder;
-            border-bottom: 3px solid #000;
-        }
         .menu-box ul li a{
             padding: 0;
             font-size: 25px;
-            color: var(--black);
+            color: var(--white);
             height: 50px;
             width: 200px;
             margin: 6px;
             border: 1 solid var(--dark-red);
-            border-style: double;
             border-radius: 8px;
         }
-        .menu-box ul li{
-            position: relative;
-        }
-        .menu-box ul li:nth-child(1)::before{
-            content: '';
-            width: 30px;
-            height: 30px;
-            position: absolute;
-            background-image: url(../utilities/utensils-solid.svg);
-            background-size: cover;
-            left: 50px;
-            top: 25%;
-        }
-        .menu-box ul li:nth-child(2)::before{
-            content: '';
-            width: 30px;
-            height: 30px;
-            position: absolute;
-            background-image: url(../utilities/box-open-solid.svg);
-            background-size:cover;
-            left: 25px;
-            top: 28%;
-        }
-        .menu-box ul li:nth-child(3)::before{
-            content: '';
-            width: 30px;
-            height: 30px;
-            position: absolute;
-            background-image: url(../utilities/bag-shopping-solid.svg);
-            background-size:cover;
-            left: 35px;
-            top: 23%;
-        }
-        .menu-nav {
-            text-align: center;
-        }
-        .menu-nav ul{
+        .menu-box ul{
+            margin: 6px 0 0 0;
             list-style: none;
             padding: 0;
         }
+        .menu-box li{
+            display: inline;
+            padding: 0 3px 0 3px;
+        }
 
-        
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, 240px);
-            gap: 26px;
-            place-content: center;
-            padding: 120px 0 0 0;
-            justify-content: space-between;
-        }
-        .product-card {
-            width: 260px;
-            height: 310px;
-            background-color: brown;
-            border-radius: 5%;
-            border-style: solid;
-        }
-        .product-card img {
-            padding: 5px;
-            width: 240px;
-            height: 240px;
-            border-radius: 20px;
-            object-fit: cover;
-        }
-        .product-info {
+        .producto{
+            margin: 1em;
+            max-width: 280px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 12px;
+            flex-grow: column;
+            border-radius: 6px;
+            box-shadow: 0 0 1em rgb(rgb(255, 192, 144));
+            background-color: orange;
+            cursor: pointer;
         }
-        .product-info figure {
-            margin: 0;
+        .producto img{
+            width: 250px;
+            height: 250px;
+            object-fit:cover;
         }
-        .product-info figure img {
-            object-fit: fill;
-            width: 35px;
-            height: 35px;
+        .informacion{
+            padding: 1em;
+            display: flex;
+            flex-flow: column;
         }
-        .product-info div p:nth-child(1) {
-            margin: 5px;
-            color: #fff;
+        .informacion * + *{
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        .nombre{
+            padding-top: 1em;
+            font-weight: bolder;
+            font-size: var(--lg);
+        }
+        .precio{
             font-weight: bold;
-            font-size: var(--md);
-            margin-top: 0;
-            margin-bottom: 4px;
+            font-size: var(--lg);
         }
-        .product-info div p:nth-child(2) {
-            margin: 5px;
-            font-size: var(--sm);
-            margin-top: 0;
-            margin-bottom: 0;
-            color: var(--very-light-pink);
-    }
     </style>
 </head>
 <body>
     <div class="containter text-center">
         <header class="header-center">
                 <div class ="d-inline-flex align-content-center p-0 ml-auto m-1">
-                        <a class="header-brand " href="#">
+                    <a class="header-brand " href="#">
                         <img src="..\utilities\caney-Logo.png" alt="logo" class="logo" width="60" height="60" class="justify-content-start">
                     </a>
                 </div>
-                <div class="d-in justify-content-start p-0 align-self-center mx-auto m-1 ">
-                    <a class="header-brand">Bienvenidos al Caney Llanero</a>
+                <div class="menu-box">
+                        <ul> 
+                            <li>
+                                <a href="../src/Inicio.html" class="btn btn-outline-success">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-outline-success">Productos</a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-outline-success">Pedidos</a>
+                            </li>
+                        </ul>
                 </div>
                 <div class ="d-inline-flex align-content-center p-0 mr-auto m-1 invisible">
                     <a class="header-brand " href="#">
@@ -149,77 +96,37 @@
                 </div>
             </header>
     </div>
-    <nav class="container" style="float:left; margin:0; width: 20%; height:max-content;" >
-    <div class="menu-box">
-        <h1>Menú</h1>
-        <form class="menu-nav">
-            <ul flex-column> 
-                <li class="nav-item">
-                    <a href="../src/Inicio.html" class="btn btn-outline-success">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="btn btn-outline-success">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="btn btn-outline-success">Pedidos</a>
-                </li>
-            </ul>
-        </form>
+<section class="tarjetas">
+    <div class="producto">
+        <div class="informacion">
+            <img src="../utilities/cazuela-de-papa.jpg" alt="Carne Asada">
+            <span class="nombre">Cazuela de papa</span>
+            <span class="descripcion">Papa criolla con chorizo</span>
+            <span class="precio">$18.000</span>
+        </div>
     </div>
-</nav>
-
-    <section class="cards" style="float:right; margin:0; width: 80%; height:max-content;">
-    <div class="cards-container">
-        <div class="product-card">
-            <img src="../utilities/carne.jfif" alt="">
-            <div class="product-info">
-                <div>
-                    <p>$23.000</p>
-                    <p>Carne asada</p>
-                </div>
-                <figure>
-                    <img src="../utilities/cart-plus-solid.svg" alt="">
-                </figure>
-            </div>
+    <div class="producto">
+        <div class="informacion">
+            <img src="../utilities/canoa-platano.avif" alt="Carne Asada">
+            <span class="nombre">Canoas de platanos</span>
+            <span class="descripcion">Rellenas de Camaron y parmesano</span>
+            <span class="precio">$20.000</span>
         </div>
-
-        <div class="product-card">
-        <img src="../utilities/carne.jfif" alt="">
-        <div class="product-info">
-            <div>
-                <p>$23.000</p>
-                <p>Carne asada</p>
-            </div>
-            <figure>
-                <img src="../utilities/cart-plus-solid.svg" alt="">
-            </figure>
-        </div>
-        </div>
-
-        <div class="product-card">
-        <img src="../utilities/carne.jfif" alt="">
-        <div class="product-info">
-            <div>
-                <p>$23.000</p>
-                <p>Carne asada</p>
-            </div>
-            <figure>
-                <img src="../utilities/cart-plus-solid.svg" alt="">
-            </figure>
-        </div>
-        </div>
-
-        <div class="product-card">
-    <img src="../utilities/carne.jfif" alt="">
-    <div class="product-info">
-        <div>
-            <p>$23.000</p>
-            <p>Carne asada</p>
-        </div>
-        <figure>
-            <img src="../utilities/cart-plus-solid.svg" alt="">
-        </figure>
     </div>
+    <div class="producto">
+        <div class="informacion">
+            <img src="../utilities/patacones.jpg" alt="Carne Asada">
+            <span class="nombre">Patacones</span>
+            <span class="descripcion">Con hogao y salsa de la casa</span>
+            <span class="precio">$12.000</span>
+        </div>
+    </div>
+    <div class="producto">
+        <div class="informacion">
+            <img src="../utilities/colombinas.jpg" alt="Carne Asada">
+            <span class="nombre">Colombinas</span>
+            <span class="descripcion">De pollo a la Romana</span>
+            <span class="precio">$15.000</span>
         </div>
     </div>
 </section>
