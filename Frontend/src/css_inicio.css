@@ -1,0 +1,54 @@
+.menu-box ul li a{
+    padding: 0;
+    font-size: 25px;
+    color: var(--white);
+    height: 50px;
+    width: 200px;
+    margin: 6px;
+    border: 1 solid var(--dark-red);
+    border-radius: 8px;
+}
+.menu-box ul{
+    margin: 6px 0 0 0;
+    list-style: none;
+    padding: 0;
+}
+.menu-box li{
+    display: inline;
+    padding: 0 3px 0 3px;
+}
+
+.producto{
+    margin: 1em;
+    max-width: 280px;
+    display: flex;
+    flex-grow: column;
+    border-radius: 6px;
+    box-shadow: 0 0 1em rgb(rgb(255, 192, 144));
+    background-color: orange;
+    cursor: pointer;
+}
+.producto img{
+    width: 250px;
+    height: 250px;
+    object-fit:cover;
+}
+.informacion{
+    padding: 1em;
+    display: flex;
+    flex-flow: column;
+}
+.informacion * + *{
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.nombre{
+    padding-top: 1em;
+    font-weight: bolder;
+    font-size: var(--lg);
+}
+.precio{
+    font-weight: bold;
+    font-size: var(--lg);
+}
