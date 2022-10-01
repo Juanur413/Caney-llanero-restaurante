@@ -56,7 +56,8 @@ button{
     padding-bottom: 1em;
     text-align: center;
 }
-.informacion :nth-child(1){
+.informacion span:nth-child(1){
+    margin-bottom: 10px;
     text-align: center;
 }
 
