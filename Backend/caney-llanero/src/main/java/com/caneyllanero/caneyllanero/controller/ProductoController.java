@@ -34,6 +34,7 @@ public class ProductoController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Producto> delete(@PathVariable("id") Integer id_Producto){
         return  productoService.findById(id_Producto)
