@@ -26,6 +26,26 @@ header {
     border-bottom: 0.5px solid #1f0c0d;
     background-color: var(--dark-red);  
 }
+.menu-box ul li a{
+    padding: 0;
+    font-size: 25px;
+    color: var(--white);
+    height: 50px;
+    width: 200px;
+    margin: 6px;
+    border: 1 solid var(--dark-red);
+    border-radius: 8px;
+}
+.menu-box ul{
+    margin: 6px 0 0 0;
+    list-style: none;
+    padding: 0;
+}
+.menu-box li{
+    display: inline;
+    padding: 0 3px 0 3px;
+}
+
 .header-brand{
     text-decoration: none;
     color: var(--white);
