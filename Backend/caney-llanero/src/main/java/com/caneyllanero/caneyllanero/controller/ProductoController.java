@@ -19,33 +19,33 @@ public class ProductoController {
 
     @CrossOrigin
     @GetMapping
-    public ResponseEntity<List<Producto>> findAll() { 
-        return ResponseEntity.ok(productoService.findAll()); 
+    public ResponseEntity<List<Producto>> findAll() {
+        return ResponseEntity.ok(productoService.findAll());
     }
-    
+
     @CrossOrigin
     @PostMapping
-    public ResponseEntity<Producto> create(@Validated @RequestBody Producto producto ) {
+    public ResponseEntity<Producto> create(@Validated @RequestBody Producto producto) {
         return new ResponseEntity<>(productoService.create(producto), HttpStatus.CREATED);
     }
-    
+
     @CrossOrigin
     @PutMapping
-    public ResponseEntity<Producto> update(@Validated @RequestBody Producto producto){
-        return  productoService.findById(producto.getId_Producto())
-        .map(c -> ResponseEntity.ok(productoService.update(producto)))
-        .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<Producto> update(@Validated @RequestBody Producto producto) {
+        return productoService.findById(producto.getId_Producto())
+                .map(c -> ResponseEntity.ok(productoService.update(producto)))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
-    
+
     @CrossOrigin
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Producto> delete(@PathVariable("id") Integer id_Producto){
-        return  productoService.findById(id_Producto)
+    @RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
+    public ResponseEntity<Producto> delete(@PathVariable("id") Integer id_Producto) {
+        return productoService.findById(id_Producto)
                 .map(c -> {
                     productoService.delete(id_Producto);
                     return ResponseEntity.ok(c);
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-    
+
 }
