@@ -18,10 +18,17 @@ const userAction = async () => {
         if(test["visible"] == 1){
             clone.removeAttribute("hidden");
         }
+        var actualizar = document.getElementById("actualizar");
+        actualizar.setAttribute("id_producto", test["id_Producto"])
         clone.setAttribute("id", test["id_Producto"]);
         const rest = document.getElementById("seccion");
         rest.appendChild(clone);
     }
 }
+
+function actualizarProducto(id){
+    console.log(id);
+}
+
 
 
