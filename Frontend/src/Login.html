@@ -41,23 +41,35 @@
     </header>
     </div>
 
+    <script> 
+        function go(){
+        if (document.getElementById("login").value=='Usuario' && document.getElementById("password").value=='Contraseña'){ 
+                window.location.href = "./inicio.html";
+                window.location.replace("./inicio.html");
+            } 
+            else{ 
+                 alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
+            } 
+        } 
+        </script> 
+
     <div class="login">
         <div class ="form-container">
-            <form action="/" class="subtitle border-2 rounded-top border border-dark " style="margin-bottom: 0.5px;">
+            <span action="/" class="subtitle border-2 rounded-top border border-dark " style="margin-bottom: 0.5px;">
                 <div class="login-h1">
                     <h1>Login</h1>
                 </div>
-            </form>
+            </span>
             <form action="/" class="form border-2 rounded-bottom border border-dark ">
-            <label for="usuario" class="usuario">Usuario</label>
+            <label name="login" for="usuario" class="usuario">Usuario</label>
             <!-- <br> -->
-            <input type="text" id="Email" placeholder="usuario" class="input input-user">
+            <input id="login" type="text" id="Email" placeholder="usuario" class="input input-user">
             <br>
-            <label for="password" class="contraseña">Contraseña</label>
+            <label name="password" for="password" class="contraseña">Contraseña</label>
             <!-- <br> -->
-            <input type="password" id="password" placeholder="contraseña" class="input input-password">
+            <input id="password" type="password" id="password" placeholder="contraseña" class="input input-password">
             <!-- !--secondary-button signup-button btn btn-outline-warning-->
-            <button class="btn btn-outline-danger btn-danger secondary-button" type="submit">Ingresar</button>
+            <button onclick=go() class="btn btn-outline-danger btn-danger secondary-button" >Ingresar</button>
             </form>
         </div>
     </div>

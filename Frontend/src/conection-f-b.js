@@ -10,7 +10,7 @@ const userAction = async () => {
         var span = document.getElementById("nombre");
         var spanDesc = document.getElementById("descripcion");
         var spanPres = document.getElementById("precio");
-        imagen.setAttribute("src" , test["Imagen"]);
+        imagen.setAttribute("src" , test["imagen"]);
         span.textContent = test["nombre"];
         spanDesc.textContent = test["descripcion"];
         spanPres.textContent = "$ "+test["precio"];
