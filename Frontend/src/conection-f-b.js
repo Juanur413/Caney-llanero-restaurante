@@ -6,13 +6,19 @@ const userAction = async () => {
     for(x in myJson){
         var test = myJson[x];
         var divProducto = document.getElementById("producto");
-        var clone = divProducto.cloneNode(true);
+        var imagen = document.getElementById("imagen");
         var span = document.getElementById("nombre");
         var spanDesc = document.getElementById("descripcion");
         var spanPres = document.getElementById("precio");
+        imagen.setAttribute("src" , test["Imagen"]);
         span.textContent = test["nombre"];
         spanDesc.textContent = test["descripcion"];
         spanPres.textContent = "$ "+test["precio"];
+        var clone = divProducto.cloneNode(true);
+        if(test["visibilidad" == 1]){
+            clone.removeAttribute("hidden");
+        }
+        clone.setAttribute("id", test["id_Producto"]);
         const rest = document.getElementById("seccion");
         rest.appendChild(clone);
 

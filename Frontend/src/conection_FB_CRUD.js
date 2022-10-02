@@ -14,9 +14,8 @@ const userAction = async () => {
         span.textContent = test["nombre"];
         spanDesc.textContent = test["descripcion"];
         spanPres.textContent = "$ "+test["precio"];
-        hiddenID.textContent = test["id_Producto"];
         var clone = divProducto.cloneNode(true);
-        if(test["visibilidad" == true]){
+        if(test["visibilidad" == 1]){
             clone.removeAttribute("hidden");
         }
         clone.setAttribute("id", test["id_Producto"]);
