@@ -1,0 +1,136 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema caney_llanero
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema caney_llanero
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `caney_llanero` DEFAULT CHARACTER SET utf8mb3 ;
+USE `caney_llanero` ;
+
+-- -----------------------------------------------------
+-- Table `caney_llanero`.`administrador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `caney_llanero`.`administrador` (
+  `Id_Documento` INT NOT NULL,
+  `Nombre` VARCHAR(45) NOT NULL,
+  `Apellido` VARCHAR(45) NOT NULL,
+  `Correo` VARCHAR(45) NOT NULL,
+  `Contraseña` VARCHAR(45) NOT NULL,
+  `Usuario` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Id_Documento`),
+  UNIQUE INDEX `Usuario_UNIQUE` (`Usuario` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `caney_llanero`.`tipo_producto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `caney_llanero`.`tipo_producto` (
+  `Id_Tipo_producto` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Id_Tipo_producto`),
+  UNIQUE INDEX `Id_Tipo_producto_UNIQUE` (`Id_Tipo_producto` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `caney_llanero`.`producto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `caney_llanero`.`producto` (
+  `Id_Producto` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NOT NULL,
+  `Descripcion` VARCHAR(200) NOT NULL,
+  `Precio` INT NOT NULL,
+  `Id_Tipo_producto` INT NOT NULL,
+  `Id_Documento` INT NOT NULL,
+  `Imagen` VARCHAR(250) NOT NULL,
+  `Visible` boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (`Id_Producto`),
+  UNIQUE INDEX `Id_Producto_UNIQUE` (`Id_Producto` ASC),
+  INDEX `Id_Documento_idx` (`Id_Documento` ASC),
+  INDEX `Id_Tipo_producto_idx` (`Id_Tipo_producto` ASC),
+  CONSTRAINT `Id_Documento`
+    FOREIGN KEY (`Id_Documento`)
+    REFERENCES `caney_llanero`.`administrador` (`Id_Documento`),
+  CONSTRAINT `Id_Tipo_producto`
+    FOREIGN KEY (`Id_Tipo_producto`)
+    REFERENCES `caney_llanero`.`tipo_producto` (`Id_Tipo_producto`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO tipo_producto (Nombre) VALUES('Entrada');
+INSERT INTO tipo_producto (Nombre) VALUES('Plato Fuerte');
+INSERT INTO tipo_producto (Nombre) VALUES('Recomendacion del chef');
+INSERT INTO tipo_producto (Nombre) VALUES('Plato Llanero');
+INSERT INTO tipo_producto (Nombre) VALUES('Licores');
+INSERT INTO tipo_producto (Nombre) VALUES('Bebida');
+INSERT INTO tipo_producto (Nombre) VALUES('Postre');
+INSERT INTO Administrador values ( 02092022, 'Carlos','Leal','cristianmape@live.com','CarlosCaney26', 'CarlosLeal26');
+
+INSERT INTO `caney_llanero`.`producto`
+(`Nombre`,
+`Descripcion`,
+`Precio`,
+`Id_Tipo_producto`,
+`Id_Documento`,
+`Imagen`)
+VALUES 
+('CAZUELA DE PAPA','Papa Criolla y chorizo','18000',1,02092022,'Pendiente'),
+('CANOAS DE PLÁTANO','Rellenas de Camarón y parmesano','20000',1,02092022,'Pendiente'),
+('PATACONES','Con hogao y salsa de la casa','12000',1,02092022,'Pendiente'),
+('COLOMBIANAS','De pollo a la Romana','15000',1,02092022,'Pendiente'),
+('AREPITAS LLANERAS','Rellenas de Camarón y parmesano','6000',1,02092022,'Pendiente'),
+('PUNTA DE ANCA','300 gr Acompañada de papas a la francesa y ensalada caney. chimichurri','38000',2,02092022,'Pendiente'),
+('COSTILLA DE CERDO','300 gr Bañada en salsa BBQ. Acompañada por papas a la francesa. ensalada casa y salsa casa.','36000',2,02092022,'Pendiente'),
+('SUPREMA DE POLLO NAPOLITANA','300gr Gratinada. Acompañada por papas a la francesa. ensalada casa y salsa casa.','36000',2,02092022,'Pendiente'),
+('CHURRASCO','300 gr Gratinada. Acompañada por papas a la francesa. ensalada casa y salsa casa.','38000',2,02092022,'Pendiente'),
+('BABY BEEF','300gr Acompañada por papas a la francesa. ensalada casa y salsa casa.','36000',2,02092022,'Pendiente'),
+('SALMON SELLADO','Bañado en salsa de fruto amarillos. acompañado por ensalada Caney y arroz con frutos secos.','40000',3,02092022,'Pendiente'),
+('MEDALLONES DE LOMO FINO','Sellados bañados en salsa de champiñones. Vino tinto acompañado por ensalada Caney y puré de papa criolla crema.','40000',3,02092022,'Pendiente'),
+('MEDALLONES DE LOMO DE CERDO','Hawaianos al gratín. Acompañados por ensalada Caney y puré de papa cremoso','35000',3,02092022,'Pendiente'),
+('MILANESA DE POLLO','A la napolitana acompañada por ensalada Caney y papas a la francesa','35000',3,02092022,'Pendiente'),
+('TRUCHA A LA PARRILLA','Bañada en salsa marinera especial. Acompañada por ensalada Caney y arroz con frutos secos','38000',3,02092022,'Pendiente'),
+('MOJARRA FRITA','O en salsa del pacifico acompañada de arroz, ensalada Caney y tostadas de plátano','36000',3,02092022,'Pendiente'),
+('BAGRE FRITO','O en salsa del pacifico, Ensalada Caney y tostones de plátano','38000',3,02092022,'Pendiente'),
+('CACHAMA FRITA','Acompañada de ensalada Caney y tostadas de plátano','36000',3,02092022,'Pendiente'),
+('TRUCHA AL AJILLO','O dorada. Acompañada por ensalada Caney y tostadas de plátano','37000',3,02092022,'Pendiente'),
+('PORCIÓN DE CARNE RES','A la llanera con acompañamiento de papa salada, yuca cocida y salsa guacamole','30000',4,02092022,'Pendiente'),
+('PORCIÓN DE CARNE CERDO','A la llanera con acompañamiento de papa salada, yuca cocida y salsa de guacamole','32000',4,02092022,'Pendiente'),
+('PORCIÓN CARNE MIXTA','A la llanera con acompañamiento de papa salada, yuca cocida y salsa de guacamole','32000',4,02092022,'Pendiente'),
+('PORCIÓN DE MORCILLA','A la llanera con acompañamiento de papa salada o arepa','10000',4,02092022,'Pendiente'),
+('PORCIÓN DE CHORIZO','A la parrilla con acompañamiento de papa salada o arepa','5000',4,02092022,'Pendiente'),
+('LENGUA SUDADA','Con acompañamiento de arroz, papas a la francesa, ensalada y aldo del dia','32000',4,02092022,'Pendiente'),
+('TRES AMORES','CÓCTEL DE AUTOR. Mezcla de ron añejo, vodka y frutos rojos de temporada, aromatizados con eucalipto y raíces de mandrágora','21000',5,02092022,'Pendiente'),
+('JUPITER','CÓCTEL DE AUTOR. Frutos amarillos, mango y uchuva junto al vodka y el excelente sabor del licor de melon se aromatizxa con sutiles notas a romero','21000',5,02092022,'Pendiente'),
+('HEFESTO','CÓCTEL DE AUTOR. (Inspirado en el Dios Griego de la forja y herreria; Whisky y licor de naranja infusionada con tamarindo y notas de canela con un ligero toque de piña fermentada','18000',5,02092022,'Pendiente'),
+('BLUE HAWAI','CÓCTEL TIKI. Ron blanco, licor de coco, curacao azul y piña, endulzado con crema de coco y coronado con coco deshidratado','17800',5,02092022,'Pendiente'),
+('TIMBIQUÍ','CÓCTEL TIKI. Frutos tropicales del pacifico,Chontaduro y lulo, infusionados con Aguardiente, licor de naranja, miel, cítricos y un toque de sal','20000',5,02092022,'Pendiente'),
+('BAHAMAS','CÓCTEL AFRUTADOS. Trozos frescos de kiwi y fresa maridados con vodka, licor de manzana y notas cítricas','19500',5,02092022,'Pendiente'),
+('SANTORINI','CÓCTEL AFRUTADOS. Sandía y lychee, con licor de naranja y vodka maridados con pimienta rosa','20000',5,02092022,'Pendiente'),
+('MOJITO','CÓCTEL CLÁSICO. Ron blanco, azúcar, limón, menta y soda','15000',5,02092022,'Pendiente'),
+('CAIPIRIÑA','CÓCTEL CLÁSICO. limón, cachaza,azúcar y sal','000',5,02092022,'Pendiente'),
+('PIÑA COLADA','CÓCTEL CLÁSICO. Piña, ron añejo, licor de naranja y crema de coco.','19000',5,02092022,'Pendiente'),
+('MARGARITA DE FRUTAS','Tequila, licor de naranja, frutas de preferencia, limón y sal','19000',4,02092022,'Pendiente'),
+('SODA DE FRUTOS ROJOS','Fresa, mora, uvas, granadina y limón; michelada con sal','10500',6,02092022,'Pendiente'),
+('SODA DE FRUTOS AMARILLOS','Maracuya, mango, piña, jarabe y limón, michelada con sal','10500',6,02092022,'Pendiente'),
+('LIMONADA NATURAL','Limón, azúcar y hielo','10500',6,02092022,'Pendiente'),
+('LIMONADA CEREZADA','Limón, azúcar, cerezas naturales y hielo','7000',6,02092022,'Pendiente'),
+('LIMONADA DE COCO','Limón, azúcar, crema de coco artesanal y hielo','8500',6,02092022,'Pendiente'),
+('LIMONADA ELÉCTRICA','Limón, azúcar triple sec azul, menta y hielo','15500',6,02092022,'Pendiente');
+
+UPDATE caney_llanero.producto SET Imagen= concat('../utilities/ImagenesProductos/',Replace(Nombre,' ','_'),'.jpg');
