@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="icon" href="../utilities/favicon.ico">
+    <link rel="stylesheet" href="Css_general.css" type="text/css">
+    <link rel="stylesheet" href="grilla.css" type="text/css">
+    <link rel="stylesheet" href="css_admin.css" type="text/css">
+    <title>Productos</title>
+</head>
+<body>
+    <div class="containter text-center">
+        <header class="header-center">
+                <div class ="d-inline-flex align-content-center p-0 ml-auto m-1">
+                    <a class="header-brand " href="#">
+                        <img src="..\utilities\caney-Logo.png" alt="logo" class="logo" width="60" height="60" class="justify-content-start">
+                    </a>
+                </div>
+                <div class="menu-box">
+                        <ul> 
+                            <li>
+                                <a href="../src/Inicio.html" class="btn btn-outline-success">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="../src/admin_product.html" class="btn btn-outline-success">Productos</a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-outline-success">Pedidos</a>
+                            </li>
+                        </ul>
+                </div>
+                <div class ="d-inline-flex align-content-center p-0 mr-auto m-1 invisible">
+                    <a class="header-brand " href="#">
+                        <img width="60" height="60" >
+                    </a>
+                </div>
+            </header>
+    </div>
+    <section id="seccion" class="tarjetas">
+        <div id = "producto" class="producto" hidden>
+            <div class="informacion">
+                <span id="nombre" class="nombre">Nombre</span>
+                <span id="descripcion" class="descripcion">Descripcion</span>
+                <span id="precio" class="precio">123</span>
+                <span class="botones">
+                        <button id="actualizar" type="button" onclick="actualizarProducto(this.getAttribute('id_producto'))" class="editar btn btn-outline-primary" style="margin-bottom: 0px;">
+                            <input type="image" src="../utilities/pen-to-square-solid.svg" alt="">
+                        </button>
+                        <!-- <button id="eliminar" type="button" onclick="eliminarProducto(this.getAttribute('id_producto'))" class="eliminar btn btn-outline-danger" style="margin-bottom: 0px;">
+                            <input  type="image" src="../utilities/trash-can-solid.svg" alt="">
+                        </button> -->
+                        <!-- <button id="eliminar" type="button" onclick="ocultarProducto(this.getAttribute('id_producto'))" class="visualizar btn btn-outline-secondary" style="margin-bottom: 0px;" >
+                            <input  type="image" src="../utilities/eye-slash-solid.svg" alt="" stlye="width: 30px;">
+                        </button> -->
+                </span>
+                <span hidden="true" id="id_Producto" ></p>
+            </div>
+        </div>
+    </section>
+<script src="../src/conection_FB_CRUD.js"></script>
+<script>userAction();</script>
+</body>
+</html>
