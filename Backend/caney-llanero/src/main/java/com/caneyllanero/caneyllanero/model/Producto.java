@@ -28,6 +28,9 @@ public class Producto {
     @Column
     private String Imagen;
 
+    @Column
+    private Integer Visible;
+
     public Integer getId_Producto() {
         return Id_Producto;
     }
@@ -83,6 +86,14 @@ public class Producto {
 
     public void setImagen(String imagen) {
         Imagen = imagen;
+    }
+
+    public Integer getVisible() {
+        return Visible;
+    }
+
+    public void setVisible(Integer visible) {
+        Visible = visible;
     }
 
 }
