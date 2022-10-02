@@ -23,5 +23,5 @@ const userAction = async () => {
         rest.appendChild(clone);
     }
 }
-userAction();
+
 
