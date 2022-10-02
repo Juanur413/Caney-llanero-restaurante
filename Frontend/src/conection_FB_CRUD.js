@@ -27,6 +27,10 @@ const userAction = async () => {
 }
 
 function actualizarProducto(id){
+    var iddata = id;
+    window.location.replace("./editar.html"+"?"+"id="+iddata);
+    var editar = document.getElementById("id_Producto");
+    editar.textContent = id;
     console.log(id);
 }
 

@@ -13,6 +13,8 @@
     <title>Login</title>
 </head>
 <body>
+
+    
     <div class="containter">
         <header class="navbar-center">
 
@@ -36,20 +38,22 @@
         <div class ="form-container">
             <form action="/" class="subtitle border-2 rounded-top border border-dark " style="margin-bottom: 0.5px;">
                 <div class="login-h1">
-                    <h1>Editar producto</h1>
+                    <h1>Editar producto </h1>
                 </div>
             </form>
-            <form action="/" class="form border-2 rounded-bottom border border-dark ">
-                <label for="id_Producto" class="id_Producto" id="id_Producto">Producto</label>
-                <!-- <input type="text" id="id_Producto" placeholder="Id producto" class="input input-id-prodcuto"> -->
+            <form id="editarProducto" action="/" class="form border-2 rounded-bottom border border-dark ">
+                <label for="id_Producto" form="editarProducto" class="id_Producto" id="id_Producto">Producto
+                <input disabled type="text" id="id producto" placeholder="Id producto" class="input input-id-prodcuto" value="" ></label>
+                
                 <br>
                 <label for="nombre" class="nombre">Nombre</label>
                 <input type="text" id="nombre" placeholder="nombre" class="input input-nombre">
+                
                 <br>
                 <label for="id_Tipo_producto" class="id_Tipo_producto">Tipo producto</label>
                 <!-- Cambiar boton screen-roll -->
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button type="button" id="id_Tipo_producto" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     Dropdown
                     </button>
                     <ul class="dropdown-menu">
@@ -58,26 +62,54 @@
                     </ul>
                 </div>
                 <br>
-                <label for="precio" class="precio">Precio</label>
-                <input type="text" id="precio" placeholder="precio" class="input input-precio">
+                <label for="precio" class="precio">Precio
+                <input type="text" id="precio" placeholder="precio" class="input input-precio"></label>
                 <br>
-                <label for="image" class="imagen">Imagen</label>
-                <input type="text" id="imagen" placeholder="imagen" class="input input-imagen">
+                <label for="image" class="imagen">Imagen
+                <input type="text" id="imagen" placeholder="imagen" class="input input-imagen"></label>
                 <br>
-                <label for="descripcion" class="descripcion">Descripción</label>
-                <input type="text" id="descripcion" placeholder="descripcion" class="input input-descripcion">
+                <label for="descripcion" class="descripcion">Descripción
+                <input type="text" id="descripcion" placeholder="descripcion" class="input input-descripcion"></label>
                 <br>
-                <label for="id_Documento" class="id_Documento">Documento</label>
-                <p>
-                    Documento del usuario
-                </p>
-                <!-- <input type="text" id="id_Documento" placeholder="Id documento" class="input input-id-Documento"> -->
+                <label for="id_Documento" class="id_Documento">Documento
+                <input type="text" id="id_Documento" placeholder="Id documento" class="input input-id-Documento"> </label>
                 <br>
-                <button class="btn btn-outline-light btn-light visible-button" type="submit">Visible</button>
+                <!-- <label for="visible" class="visible" from="editarProducto" >
+                <button class="btn btn-outline-light btn-light visible-button" type="submit">Visible</button></label> -->
+                <div class="form-group form-check">
+                    <label for="visible" class="visible" from="editarProducto" >
+                    <input type="checkbox" class="form-check-label" for="visible" >Visible</button></label>
+                </div>
                 <button class="btn btn-outline-danger btn-danger secondary-button" type="submit">Guardar</button>
                 
             </form>
     </div>
 </section>
+
+<script>
+    async function fetchAsync (url,idNum) {
+        let response = await fetch(url);
+        let data = await response.json();
+        for (x in data){
+            let plato = data[x];
+            if (plato["id_Producto"] ==  idNum){
+                document.getElementById("nombre").setAttribute("value", plato["nombre"]);
+                document.getElementById("precio").setAttribute("value", plato["precio"]);
+                document.getElementById("imagen").setAttribute("value", plato["imagen"]);
+                document.getElementById("descripcion").setAttribute("value", plato["descripcion"]);
+                document.getElementById("id_Documento").setAttribute("value", plato["id_Documento"]);
+                document.getElementById("id_Tipo_producto").setAttribute("value", plato["Tipo_producto"]);
+                document.getElementById("descripcion").setAttribute("value", plato["descripcion"]);
+                return plato;
+            }
+         }//return alert("producto no encontrado");
+        
+    }
+    var url_string = window.location;
+    var url = new URL(url_string);
+    var idNum = url.searchParams.get("id");
+    fetchAsync('http://localhost:9090/api/producto', idNum).then(data =>{console.log(JSON.stringify(data))});
+    document.getElementById("id producto").setAttribute("value", idNum);
+</script>
 </body>
 </html>
