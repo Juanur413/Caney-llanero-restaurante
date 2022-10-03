@@ -66,14 +66,14 @@
                 <br>
 
                 <label class="id_Documento">Documento</label>
-                <input name="id_Documento"type="number" id="id_Documento" placeholder="Id documento" class="input input-id-Documento"> 
+                <input readonly name="id_Documento"type="number" id="id_Documento" placeholder="Id documento" class="input input-id-Documento"> 
                 <br>
                 
                 <label class="visible" class="id_Documento" from="editarProducto" ></label>
                 <input name="visible" type="number" id="visible" class="form-check-label" for="visible" >Visible</button>
                 <br>
 
-                <button onclik="funcionSubmit()" form="editarProducto" class="btn btn-outline-danger btn-danger secondary-button" type="submit">Guardar</button>
+                <button  form="editarProducto" class="btn btn-outline-danger btn-danger secondary-button" type="submit">Guardar</button>
                 
             </form>
     </div>
@@ -136,10 +136,16 @@
 
         
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("PUT", yourUrl, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(jsons2);
+            var xhr = new XMLHttpRequest();
+            xhr.open("PUT", yourUrl, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(jsons2);
+            console.log("dentro de la funcion")
+            alert("producto creado con Éxito :)")
+            window.location.replace("./inicio.html")
+
+    
+
 
         
 
