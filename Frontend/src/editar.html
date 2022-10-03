@@ -10,7 +10,7 @@
     <link rel="icon" href="../utilities/favicon.ico">
     <link rel="stylesheet" href="Css_general.css" type="text/css">
     <link rel="stylesheet" href="editar.css" type="text/css"> 
-    <title>Login</title>
+    <title>Editar</title>
 </head>
 <body>
 
@@ -41,45 +41,39 @@
                     <h1>Editar producto </h1>
                 </div>
             </span>
-            <form id="editarProducto" enctype="text/plain" method="put" class="form border-2 rounded-bottom border border-dark ">
-                <label for="id_Producto" form="editarProducto" class="id_Producto" id="id_Producto">Producto
-                <input form="editarProducto" disabled type="text" id="id producto" placeholder="Id producto" class="input input-id-prodcuto" value="" ></label>
+            <form action="#"id="editarProducto" class="form border-2 rounded-bottom border border-dark ">
+                <label  form="editarProducto" class="id_Producto" id="id_Producto">Producto</label>
+                <input readonly name="id_Producto" form="editarProducto"  type="number" id="id producto" placeholder="Id producto" class="input input-id-prodcuto" value="" >
                 <br>
-                <label for="nombre" class="nombre">Nombre</label>
-                <input type="text" id="nombre" placeholder="nombre" class="input input-nombre">
+                <label  class="nombre">Nombre</label>
+                <input name="nombre"type="text" id="nombre" placeholder="nombre" class="input input-nombre"></label>
                 
                 <br>
                 <label for="id_Tipo_producto" class="id_Tipo_producto">Tipo producto</label>
-                <!-- Cambiar boton screen-roll -->
-                <div class="btn-group" role="group">
-                    <button type="button" id="id_Tipo_producto" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                    </ul>
-                </div>
+                <input name="id_Tipo_producto" type="number" id="id_Tipo_producto" placeholder="id Tipo Producto" class="input input-precio">
                 <br>
-                <label for="precio" class="precio">Precio
-                <input type="text" id="precio" placeholder="precio" class="input input-precio"></label>
+
+                <label class="precio">Precio</label>
+                <input name="precio"type="number" id="precio" placeholder="precio" class="input input-precio">
                 <br>
-                <label for="image" class="imagen">Imagen
-                <input type="text" id="imagen" placeholder="imagen" class="input input-imagen"></label>
+
+                <label for="imagen" class="imagen">Imagen</label>
+                <input name="imagen"type="text" id="imagen" placeholder="imagen" class="input input-imagen">
                 <br>
-                <label for="descripcion" class="descripcion">Descripción
-                <input type="text" id="descripcion" placeholder="descripcion" class="input input-descripcion"></label>
+
+                <label class="descripcion">Descripción</label>
+                <input name = "descripcion"type="text" id="descripcion" placeholder="descripcion" class="input input-descripcion"></label>
                 <br>
-                <label for="id_Documento" class="id_Documento">Documento
-                <input type="text" id="id_Documento" placeholder="Id documento" class="input input-id-Documento"> </label>
+
+                <label class="id_Documento">Documento</label>
+                <input name="id_Documento"type="number" id="id_Documento" placeholder="Id documento" class="input input-id-Documento"> 
                 <br>
-                <!-- <label for="visible" class="visible" from="editarProducto" >
-                <button class="btn btn-outline-light btn-light visible-button" type="submit">Visible</button></label> -->
-                <div class="form-group form-check">
-                    <label for="visible" class="visible" from="editarProducto" >
-                    <input type="checkbox" class="form-check-label" for="visible" >Visible</button></label>
-                </div>
-                <button form="editarProducto" class="btn btn-outline-danger btn-danger secondary-button" type="submit">Guardar</button>
+                
+                <label class="visible" class="id_Documento" from="editarProducto" ></label>
+                <input name="visible" type="number" id="visible" class="form-check-label" for="visible" >Visible</button>
+                <br>
+
+                <button onclik="funcionSubmit()" form="editarProducto" class="btn btn-outline-danger btn-danger secondary-button" type="submit">Guardar</button>
                 
             </form>
     </div>
@@ -97,8 +91,9 @@
                 document.getElementById("imagen").setAttribute("value", plato["imagen"]);
                 document.getElementById("descripcion").setAttribute("value", plato["descripcion"]);
                 document.getElementById("id_Documento").setAttribute("value", plato["id_Documento"]);
-                document.getElementById("id_Tipo_producto").setAttribute("value", plato["Tipo_producto"]);
+                document.getElementById("id_Tipo_producto").setAttribute("value", plato["id_Tipo_producto"]);
                 document.getElementById("descripcion").setAttribute("value", plato["descripcion"]);
+                document.getElementById("visible").setAttribute("value", plato["visible"]);
                 return plato;
             }
          }
@@ -108,19 +103,56 @@
     var url = new URL(url_string);
     var idNum = url.searchParams.get("id");
     fetchAsync('http://localhost:9090/api/producto', idNum).then(data =>{console.log(JSON.stringify(data))});
-    document.getElementById("id producto").setAttribute("value", idNum);
-    const form = document.querySelector("#editarProducto");
-    form.addEventListener("submit", function (event) {
-	    // stop form submission
-	    event.preventDefault();
-
-	    // validate the form
-
-	    // if valid, submit the form.
-
-		console.log(form);
-
-});    
+    document.getElementById("id producto").setAttribute("value", idNum); 
+    var data = new FormData();
+    console.log(data);  
 </script>
+
+<script>
+    const yourUrl = "http://localhost:9090/api/producto"
+    const formEL= document.querySelector('.form');
+    editarProducto.onsubmit = async (e) => {
+        e.preventDefault();
+        function FormDataToJSON(FormElement){    
+            var formData = new FormData(FormElement);
+            var ConvertedJSON= {};
+        for (const [key, value]  of formData.entries())
+        {
+            ConvertedJSON[key] = value;
+        }
+
+            return ConvertedJSON
+        }
+        var objeto= FormDataToJSON(formEL);
+        objeto["id_Tipo_producto"] = parseInt(objeto["id_Tipo_producto"]);
+        objeto["id_Producto"] = parseInt(objeto["id_Producto"]);
+        objeto["id_Documento"] = parseInt(objeto["id_Documento"]);
+        objeto["precio"] = parseInt(objeto["precio"]);
+        objeto["visible"] = parseInt(objeto["visible"]);
+        console.log(objeto);
+        console.log(objeto["id_Tipo_producto"]);
+        var jsons2 = JSON.stringify(objeto);
+        console.log(jsons2);
+
+        
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", yourUrl, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(jsons2);
+
+        
+
+    };
+  </script>
+
+
+
+</script>
+
+
+
+
+
 </body>
 </html>
