@@ -15,23 +15,32 @@
 <body>
 
     
-    <div class="containter">
-        <header class="navbar-center">
-
+    <div class="containter text-center">
+        <header class="header-center">
                 <div class ="d-inline-flex align-content-center p-0 ml-auto m-1">
                     <a class="header-brand " href="#">
                         <img src="..\utilities\caney-Logo.png" alt="logo" class="logo" width="60" height="60" class="justify-content-start">
                     </a>
                 </div>
-                <div class="d-in justify-content-start p-0 align-self-center mx-auto m-1 ">
-                    <a class="header-brand ">Bienvenidos al Caney Llanero</a>
+                <div class="menu-box">
+                        <ul> 
+                            <li>
+                                <a href="../src/Inicio.html" class="btn btn-outline-success">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="../src/admin_product.html" class="btn btn-outline-success">Productos</a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-outline-success">Pedidos</a>
+                            </li>
+                        </ul>
                 </div>
                 <div class ="d-inline-flex align-content-center p-0 mr-auto m-1 invisible">
                     <a class="header-brand " href="#">
                         <img width="60" height="60" >
                     </a>
                 </div>
-    </header>
+            </header>
     </div>
 
     <section class="login">
@@ -96,7 +105,7 @@
                 document.getElementById("visible").setAttribute("value", plato["visible"]);
                 return plato;
             }
-         }
+        }
         
     }
     var url_string = window.location;
@@ -144,13 +153,9 @@
             alert("producto editado con Éxito :)")
             window.location.replace("./inicio.html")
 
-    
-
-
-        
 
     };
-  </script>
+</script>
 
 
 
