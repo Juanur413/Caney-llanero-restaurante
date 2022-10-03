@@ -36,15 +36,14 @@
 
     <section class="login">
         <div class ="form-container">
-            <form action="/" class="subtitle border-2 rounded-top border border-dark " style="margin-bottom: 0.5px;">
+            <span action="/" class="subtitle border-2 rounded-top border border-dark " style="margin-bottom: 0.5px;">
                 <div class="login-h1">
                     <h1>Editar producto </h1>
                 </div>
-            </form>
-            <form id="editarProducto" action="/" class="form border-2 rounded-bottom border border-dark ">
+            </span>
+            <form id="editarProducto" enctype="text/plain" method="put" class="form border-2 rounded-bottom border border-dark ">
                 <label for="id_Producto" form="editarProducto" class="id_Producto" id="id_Producto">Producto
-                <input disabled type="text" id="id producto" placeholder="Id producto" class="input input-id-prodcuto" value="" ></label>
-                
+                <input form="editarProducto" disabled type="text" id="id producto" placeholder="Id producto" class="input input-id-prodcuto" value="" ></label>
                 <br>
                 <label for="nombre" class="nombre">Nombre</label>
                 <input type="text" id="nombre" placeholder="nombre" class="input input-nombre">
@@ -80,7 +79,7 @@
                     <label for="visible" class="visible" from="editarProducto" >
                     <input type="checkbox" class="form-check-label" for="visible" >Visible</button></label>
                 </div>
-                <button class="btn btn-outline-danger btn-danger secondary-button" type="submit">Guardar</button>
+                <button form="editarProducto" class="btn btn-outline-danger btn-danger secondary-button" type="submit">Guardar</button>
                 
             </form>
     </div>
@@ -102,7 +101,7 @@
                 document.getElementById("descripcion").setAttribute("value", plato["descripcion"]);
                 return plato;
             }
-         }//return alert("producto no encontrado");
+         }
         
     }
     var url_string = window.location;
@@ -110,6 +109,18 @@
     var idNum = url.searchParams.get("id");
     fetchAsync('http://localhost:9090/api/producto', idNum).then(data =>{console.log(JSON.stringify(data))});
     document.getElementById("id producto").setAttribute("value", idNum);
+    const form = document.querySelector("#editarProducto");
+    form.addEventListener("submit", function (event) {
+	    // stop form submission
+	    event.preventDefault();
+
+	    // validate the form
+
+	    // if valid, submit the form.
+
+		console.log(form);
+
+});    
 </script>
 </body>
 </html>
