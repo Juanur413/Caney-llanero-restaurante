@@ -1,5 +1,5 @@
 const userAction = async () => {
-    const response = await fetch('http://localhost:9090/api/producto');
+    const response = await fetch('https://caney-llanero-restaurante.herokuapp.com/api/producto');
     const myJson = await response.json(); //extract JSON from the http response
     var divProducto = document.getElementById("producto");
     document.getElementById("seccion");
